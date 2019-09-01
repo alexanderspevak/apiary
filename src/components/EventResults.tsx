@@ -30,3 +30,4 @@ const EventResult = (props: ITeamScore) => {
     <><ConnectedTeam selected={teamId}/> {score} </>
   )
 }
+

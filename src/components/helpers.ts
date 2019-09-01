@@ -32,5 +32,5 @@ export const structureEventResults = (id: any, eventResults: IEventResult[]) => 
 export const parseDate = (dateString: string) => {
   const dateValue = Date.parse(dateString)
 
-  return isNaN(dateValue) ? dateString : (new Date(dateString)).toLocaleString()
+  return isNaN(dateValue) ? dateString : (new Date(dateString)).toUTCString()
 }

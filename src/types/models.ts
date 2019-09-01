@@ -39,11 +39,14 @@ export interface ITeamScore {
 export interface IEventProps extends IEvent {
   goals: number
   eventResults: IEventResult[]
+  eventResultsError: Error,
+  eventResultsPending: boolean
+  pending: boolean
 }
 
 export interface ITeamProps extends ITeam {
   selected: number
   data: ITeam[]
-  pending: boolean
   error: Error
+  pending: boolean
 }

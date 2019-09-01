@@ -13,6 +13,7 @@ const Event = (props: IEventProps) => {
     state,
     timeStartPlanned,
     eventResults,
+    eventResultsPending,
     goals
   } = props
 
@@ -24,7 +25,7 @@ const Event = (props: IEventProps) => {
     ? (
       <div>
         <h3> {name} {state} {eventDate} </h3>
-        {structuredEventResults && <EventResults eventResults={structuredEventResults}/>}
+        {!eventResultsPending && structuredEventResults && <EventResults eventResults={structuredEventResults}/>}
       </div>
     ) : (
       <div></div>
@@ -44,7 +45,9 @@ const mapStateToProps = (state: IState) => ({
   pending: state.events.pending,
   error: state.events.error,
   eventResults: state.eventResults.data,
-  goals: state
+  goals: state,
+  eventResultsError: state.eventResults.error,
+  eventResultsPending: state.eventResults.pending
 })
 
 export const Events = connect(mapStateToProps)(EventsContainer)
