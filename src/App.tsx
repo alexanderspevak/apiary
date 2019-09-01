@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import { fetchData, rootReducer } from './store'
+import { Competitions, ConnectedGoalsFilter } from './components'
+import { routes } from './store/routes'
+import {
+  PREFIX_COMPETITIONS,
+  PREFIX_EVENTS,
+  PREFIX_EVENTS_RESULTS,
+  PREFIX_TEAMS
+} from './constants'
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk)
+)
+
+const App = () => {
+  try {
+    store.dispatch(fetchData(routes.competitions, PREFIX_COMPETITIONS) as any)
+    store.dispatch(fetchData(routes.events, PREFIX_EVENTS) as any)
+    store.dispatch(fetchData(routes.eventResults, PREFIX_EVENTS_RESULTS) as any)
+    store.dispatch(fetchData(routes.teams, PREFIX_TEAMS) as any)
+
+    return (
+      <Provider store = {store} >
+        <Competitions/>
+        <ConnectedGoalsFilter/>
+      </Provider>
+    )
+  } catch (e) {
+    return (
+      <div>
+        Error loading page
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App

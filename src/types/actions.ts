@@ -1,6 +1,13 @@
-import { IBaseModels } from './models'
+import { ICompetition } from './models'
 
-interface IAction {
+interface IBaseAction {
   type: string
-  payload: IBaseModels
+}
+export interface IModelAction extends IBaseAction {
+  payload: ICompetition[]
+  error: Error | null
+}
+
+export interface IGoalsAction extends IBaseAction {
+  goals: number
 }

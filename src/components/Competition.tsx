@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { ICompetition, IEvent, IState } from '../../types'
-import Events from '../events/Event'
-import { Container } from '../Container'
+import { ICompetition, IState } from '../types'
+import { Events } from './Events'
+import { Container } from './Container'
 
 const Competition = (props: ICompetition) => {
   const {
@@ -14,7 +14,7 @@ const Competition = (props: ICompetition) => {
 
   return (
     <>
-      <h3>{name}, {dateFrom} - {dateTo}</h3>
+      <h1>{name}, {dateFrom} - {dateTo}</h1>
       <Events filter = {{ key: 'competitionId', id }}/>
     </>
   )
@@ -22,12 +22,10 @@ const Competition = (props: ICompetition) => {
 
 export const CompetitionContainer = Container(Competition)
 
-const mapStateToProps = (state: IState) => {
-  return {
-    data: state.competitions.data,
-    pending: state.competitions.pending,
-    error: state.competitions.error
-  }
-}
+const mapStateToProps = (state: IState) => ({
+  data: state.competitions.data,
+  pending: state.competitions.pending,
+  error: state.competitions.error
+})
 
-export default connect(mapStateToProps)(CompetitionContainer)
+export const Competitions = connect(mapStateToProps)(CompetitionContainer)

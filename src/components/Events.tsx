@@ -1,34 +1,47 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { IEventResult, IState } from '../types'
+import { IEventProps, IState } from '../types'
 import { Container } from './Container'
 
-import EventResultsContainer from './EventResults'
-import { extractNumberOfGoals } from './helpers'
+import { EventResults } from './EventResults'
+import { extractNumberOfGoals, structureEventResults } from './helpers'
 
-export const Events = (props: any) => {
-  const { name, id, state, timeStartPlanned, eventResults } = props
+const Event = (props: IEventProps) => {
+  const {
+    name,
+    id,
+    state,
+    timeStartPlanned,
+    eventResults,
+    goals
+  } = props
   const eventDate = (new Date(timeStartPlanned)).toLocaleString()
-  const parsedId = (typeof id) === 'string' ? parseInt(id) : id
-  const numberOfGoals = eventResults ? extractNumberOfGoals(parsedId, eventResults) : 0
+  const numberOfGoals = eventResults ? extractNumberOfGoals(id, eventResults) : 0
+  const structuredEventResults = eventResults ? structureEventResults(id, eventResults) : null
 
-  return (
-    <div>
-      <h5> {name} {state} {eventDate} </h5>
-      <EventResultsContainer filter = {{ key: 'eventId', id }}/>
-    </div>)
+  return numberOfGoals >= goals
+    ? (
+      <div>
+        <h3> {name} {state} {eventDate} </h3>
+        {structuredEventResults && <EventResults eventResults={structuredEventResults}/>}
+      </div>
+    ) : (
+      <div></div>
+    )
 }
 
-const mapEventResultsToProps = (state: IState) => ({
-  eventResults: state.eventResults.data
+const mapGoalsToProps = (state: IState) => ({
+  eventResults: state.eventResults.data,
+  goals: state.goals.data
 })
-const EventsWithResults = connect(mapEventResultsToProps)(Events)
+const EventsWithResults = connect(mapGoalsToProps)(Event as any)
 const EventsContainer = Container(EventsWithResults)
 const mapStateToProps = (state: IState) => ({
   data: state.events.data,
   pending: state.events.pending,
   error: state.events.error,
-  eventResults: state.eventResults.data
+  eventResults: state.eventResults.data,
+  goals: state
 })
 
-export default connect(mapStateToProps)(EventsContainer)
+export const Events = connect(mapStateToProps)(EventsContainer)

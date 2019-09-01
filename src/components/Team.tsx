@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { IState, ITeam } from '../types'
-import { Container } from './Container'
+import { IState, ITeamProps } from '../types'
 
-const Team = (props: ITeam) => {
+const Teams = (props: ITeamProps) => {
   const {
-    name
+    data,
+    selected
   } = props
+  const [{ name = '' } = {}] = data.filter((team) => team.id === selected)
 
   return (
     <>
@@ -15,12 +16,10 @@ const Team = (props: ITeam) => {
   )
 }
 
-export const TeamContainer = Container(Team)
-
 const mapStateToProps = (state: IState) => ({
   data: state.teams.data,
   pending: state.teams.pending,
   error: state.teams.error
 })
 
-export const Teams = connect(mapStateToProps)(TeamContainer)
+export const ConnectedTeam: any = connect(mapStateToProps)(Teams as any)

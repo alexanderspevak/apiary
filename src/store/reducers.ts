@@ -1,8 +1,8 @@
-import { IModelAction, IModelState } from '../types'
+import { IGoalsAction, IGoalsState, IModelAction, IModelState } from '../types'
 import {
   FETCH_ERROR,
   FETCH_PENDING,
-  FETCH_SUCCESS
+  FETCH_SUCCESS, LOCAL_STORAGE_GOALS_KEY, SET_GOALS_FILTER
 } from '../constants'
 
 const initialState: IModelState = {
@@ -34,5 +34,30 @@ export const reducerBuilder = (prefix: string) => {
       default:
         return state
     }
+  }
+}
+
+const getGoalsFromLocalStorage = () => {
+  const goals = localStorage.getItem(LOCAL_STORAGE_GOALS_KEY)
+  if (goals) {
+    return parseInt(goals)
+  }
+
+  return null
+}
+
+const initialGoalsStateFilter: IGoalsState = {
+  data: getGoalsFromLocalStorage()
+}
+
+export const goalsReducer = (state = initialGoalsStateFilter, action: IGoalsAction) => {
+  switch (action.type) {
+    case SET_GOALS_FILTER:
+      return {
+        ...state,
+        data: action.goals
+      }
+    default:
+      return state
   }
 }
