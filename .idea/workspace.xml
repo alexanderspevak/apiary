@@ -2,34 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="663ea25c-4b09-49aa-a76b-397834c804fc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Competition.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Competition.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EventResults.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EventResults.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Events.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GoalFilter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GoalFilter.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Team.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Team.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/helpers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/models.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/reducers.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +79,7 @@
       <workItem from="1567195905464" duration="366000" />
       <workItem from="1567196303241" duration="791000" />
       <workItem from="1567197115970" duration="62377000" />
-      <workItem from="1567323171921" duration="601000" />
+      <workItem from="1567323171921" duration="4876000" />
     </task>
     <servers />
   </component>
@@ -126,11 +106,6 @@
           <url>file://$PROJECT_DIR$/src/store/actions.ts</url>
           <line>1</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/GoalFilter.tsx</url>
-          <line>16</line>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

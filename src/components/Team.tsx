@@ -5,15 +5,20 @@ import { IState, ITeamProps } from '../types'
 const Teams = (props: ITeamProps) => {
   const {
     data,
-    selected
+    selected,
+    error,
+    pending
   } = props
   const [{ name = '' } = {}] = data.filter((team) => team.id === selected)
 
-  return (
-    <>
-      {name}
-    </>
-  )
+  if (error) {
+    return <>Error</>
+  }
+  return pending
+    ? (
+      <>Fetching...</>)
+    : (<>{name}</>
+    )
 }
 
 const mapStateToProps = (state: IState) => ({

@@ -3,10 +3,12 @@ import { connect } from 'react-redux'
 import { setGoalsFilter } from '../store/actions'
 import { IState } from '../types'
 import { Dispatch } from 'redux'
+import { LOCAL_STORAGE_GOALS_KEY } from '../constants'
 
 const GoalsFilter = (props: any) => {
   const {
-    setGoalsFilter
+    setGoalsFilter,
+    goals = -1
   } = props
 
   const handleInput = (event: any) => {
@@ -17,13 +19,19 @@ const GoalsFilter = (props: any) => {
     } = event
 
     const parsedValue = parseInt(value)
-    setGoalsFilter(isNaN(parsedValue) ? -1 : parsedValue)
+
+    handleStore(isNaN(parsedValue) ? -1 : parsedValue)
+  }
+
+  const handleStore = (goals: number) => {
+    localStorage.setItem(LOCAL_STORAGE_GOALS_KEY, `${goals}`)
+    setGoalsFilter(goals)
   }
 
   return (
     <label>
       Set minimum goals per match:
-      <input type="text" onChange = {handleInput}/>
+      <input type="text" onChange = {handleInput} value={goals > -1 ? goals : ''}/>
     </label>
   )
 }

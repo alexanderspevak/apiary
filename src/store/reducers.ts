@@ -39,11 +39,12 @@ export const reducerBuilder = (prefix: string) => {
 
 const getGoalsFromLocalStorage = () => {
   const goals = localStorage.getItem(LOCAL_STORAGE_GOALS_KEY)
+
   if (goals) {
     return parseInt(goals)
   }
 
-  return null
+  return -1
 }
 
 const initialGoalsStateFilter: IGoalsState = {

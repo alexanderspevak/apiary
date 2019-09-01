@@ -7,3 +7,4 @@ export const PREFIX_EVENTS_RESULTS = 'EVENTS_RESULT'
 export const PREFIX_TEAMS = 'TEAMS'
 export const SET_GOALS_FILTER = 'SET_GOALS_FILTER'
 export const LOCAL_STORAGE_GOALS_KEY = 'apiari:goals'
+

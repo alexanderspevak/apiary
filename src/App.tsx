@@ -33,7 +33,7 @@ const App = () => {
   } catch (e) {
     return (
       <div>
-        Error loading page
+        error
       </div>
     )
   }
